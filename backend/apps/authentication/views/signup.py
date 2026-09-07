@@ -14,6 +14,7 @@ class SignupView(APIView):
 
     def post(self, request):
 
+        print("Request received")
         # validate and convert to object
         serializer = SignupSerializer(data=request.data)
 
