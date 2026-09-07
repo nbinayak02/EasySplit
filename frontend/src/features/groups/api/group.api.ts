@@ -6,7 +6,6 @@ import type {
 } from "../schema/group.schema";
 import type { APIResponse } from "@/lib/types";
 import type { GroupExpense } from "@/features/expense/types/expense.types";
-import axios from "axios";
 
 export async function createGroup(data: FormData) {
   const response = await axiosInstance.post<APIResponse<Group>>(
