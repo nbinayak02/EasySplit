@@ -88,6 +88,10 @@ CORS_ALLOW_CREDENTIALS = True
 
 CORS_ALLOWED_ORIGINS = [os.environ.get("FRONTEND_URL", "http://localhost:5173")]
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://easysplitnp.vercel.app",
+]
+
 # Directory to store user files
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
