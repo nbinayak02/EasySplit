@@ -17,9 +17,10 @@ load_dotenv(BASE_DIR.parent / ".env")
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
+    "localhost",
     os.environ.get("RENDER_EXTERNAL_HOSTNAME", ""),
 ]
 
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     "apps.shared",
     "apps.finance",
     "apps.activity",
+    "apps.health",
 ]
 
 MIDDLEWARE = [
@@ -60,7 +62,7 @@ AUTH_USER_MODEL = "user.User"
 
 
 REST_FRAMEWORK = {
-    "EXCEPTION_HANDLER": "apps.shared.exceptions.exception_handler.custom_exception_handler",
+    # "EXCEPTION_HANDLER": "apps.shared.exceptions.exception_handler.custom_exception_handler",
     "DEFAULT_AUTHENTICATION_CLASSES": [
         "apps.authentication.authenticate.JWTCookieAuthentication",
     ],
@@ -125,8 +127,8 @@ DATABASES = {
         "NAME": os.environ.get("DB_NAME"),
         "USER": os.environ.get("DB_USER"),
         "PASSWORD": os.environ.get("DB_PASSWORD"),
-        "HOST": "localhost",
-        "PORT": 5422,
+        "HOST": os.environ.get("DB_HOST"),
+        "PORT": os.environ.get("DB_PORT"),
     }
 }
 
