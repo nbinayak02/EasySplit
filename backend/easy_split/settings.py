@@ -17,7 +17,7 @@ load_dotenv(BASE_DIR.parent / ".env")
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     "localhost",
@@ -62,7 +62,7 @@ AUTH_USER_MODEL = "user.User"
 
 
 REST_FRAMEWORK = {
-    # "EXCEPTION_HANDLER": "apps.shared.exceptions.exception_handler.custom_exception_handler",
+    "EXCEPTION_HANDLER": "apps.shared.exceptions.exception_handler.custom_exception_handler",
     "DEFAULT_AUTHENTICATION_CLASSES": [
         "apps.authentication.authenticate.JWTCookieAuthentication",
     ],

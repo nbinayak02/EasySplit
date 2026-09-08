@@ -31,7 +31,7 @@ class LoginView(APIView):
             value=refresh_token,
             httponly=True,
             secure=False,
-            samesite="Lax",
+            samesite="None",
             path="/",
             max_age=7 * 24 * 60 * 60,
         )
@@ -41,7 +41,7 @@ class LoginView(APIView):
             value=access_token,
             httponly=True,
             secure=False,
-            samesite="Lax",
+            samesite="None",
             path="/",
             max_age=15 * 60 * 60,  # max age takes seconds
         )
